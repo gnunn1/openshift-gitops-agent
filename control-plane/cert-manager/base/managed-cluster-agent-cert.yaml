@@ -1,0 +1,32 @@
+apiVersion: cert-manager.io/v1
+kind: Certificate
+metadata:
+  name: managed-cluster-principal
+spec:
+  secretName: managed-cluster-principal
+  issuerRef:
+    name: argocd-agent-ca
+    kind: Issuer
+  commonName: managed-cluster
+  subject:
+    organizationalUnits:
+      - dynamic.redhatworkshops.io
+  dnsNames:
+  - managed-cluster.dynamic.redhatworkshops.io
+---
+apiVersion: cert-manager.io/v1
+kind: Certificate
+metadata:
+  name: managed-cluster-agent
+  namespace: argocd
+spec:
+  secretName: managed-cluster-agent
+  issuerRef:
+    name: argocd-agent-ca
+    kind: Issuer
+  commonName: managed-cluster
+  subject:
+    organizationalUnits:
+      - dynamic.redhatworkshops.io
+  dnsNames:
+  - managed-cluster.dynamic.redhatworkshops.io

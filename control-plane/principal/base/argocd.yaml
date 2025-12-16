@@ -13,12 +13,14 @@ spec:
     principal:
       allowedNamespaces:
         - managed-cluster
+        - local-cluster
       enabled: true
       image: 'quay.io/argoprojlabs/argocd-agent:v0.5.1'
       jwtAllowGenerate: true
       auth: mtls:CN=([^,]+)
   sourceNamespaces:
     - managed-cluster
+    - local-cluster
   rbac:
     defaultPolicy: ""
     policy: |

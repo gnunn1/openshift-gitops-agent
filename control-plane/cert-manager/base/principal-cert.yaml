@@ -1,0 +1,15 @@
+apiVersion: cert-manager.io/v1
+kind: Certificate
+metadata:
+  name: argocd-agent-principal-tls
+spec:
+  secretName: argocd-agent-principal-tls
+  issuerRef:
+    name: argocd-agent-ca
+    kind: Issuer
+  commonName: principal
+  subject:
+    organizationalUnits:
+      - dynamic.redhatworkshops.io
+  dnsNames:
+  - argocd-agent-principal-gitops-control-plane.apps.cluster-7tvsr.dynamic.redhatworkshops.io

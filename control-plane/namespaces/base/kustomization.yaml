@@ -1,4 +1,9 @@
 resources:
+- banner.yaml
+- console-link.yaml
 - control-plane-ns.yaml
+- agent-ns.yaml
 - managed-cluster-ns.yaml
+- local-cluster-ns.yaml
+
 

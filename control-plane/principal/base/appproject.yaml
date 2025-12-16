@@ -2,7 +2,6 @@ apiVersion: argoproj.io/v1alpha1
 kind: AppProject
 metadata:
   name: managed-cluster
-  namespace: argocd
 spec:
   clusterResourceWhitelist:
   - group: '*'
@@ -14,3 +13,20 @@ spec:
   - '*'
   sourceNamespaces:
   - 'managed-cluster'
+---
+apiVersion: argoproj.io/v1alpha1
+kind: AppProject
+metadata:
+  name: local-cluster
+spec:
+  clusterResourceWhitelist:
+  - group: '*'
+    kind: '*'
+  destinations:
+  - namespace: '*'
+    server: '*'
+  sourceRepos:
+  - '*'
+  sourceNamespaces:
+  - 'local-cluster'
+

@@ -1,0 +1,9 @@
+namespace: gitops-control-plane
+
+resources:
+- issuer.yaml
+- principal-cert.yaml
+- resource-proxy.yaml
+- local-cluster-agent-cert.yaml
+- managed-cluster-agent-cert.yaml
+
